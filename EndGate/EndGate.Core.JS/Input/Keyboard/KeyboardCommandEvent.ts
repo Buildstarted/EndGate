@@ -1,3 +1,4 @@
+/// <reference path="Keys.ts" />
 /// <reference path="KeyboardModifiers.ts" />
 /// <reference path="KeyboardCommand.ts" />
 /// <reference path="KeyboardEventTarget.ts" />
@@ -61,6 +62,10 @@ module EndGate.Input {
         */
         public Key: string;
         /**
+        * The key that was hit.
+        */
+        public KeyCode: Key;
+        /**
         * The modifier status.
         */
         public Modifiers: Assets.KeyboardModifiers;
@@ -98,6 +103,7 @@ module EndGate.Input {
             }
 
             this.Key = character;
+            this.KeyCode = (<Key>code);
             this.Target = new KeyboardEventTarget(keyEvent.target);
         }
 
