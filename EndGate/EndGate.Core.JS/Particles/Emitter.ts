@@ -205,7 +205,10 @@ module EndGate.Particles {
         * Scale is not implemented.
         * @param scale The value to multiply the graphic's size by.
         */
-        public Scale(scale: number): void {
+        public get Scale(): Vector2d {
+            throw new Error("Scale is not implemented for the Emitter class.");
+        }
+        public set Scale(value: Vector2d) {
             throw new Error("Scale is not implemented for the Emitter class.");
         }
 

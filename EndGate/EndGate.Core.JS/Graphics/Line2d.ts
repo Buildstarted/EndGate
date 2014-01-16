@@ -19,6 +19,7 @@ module EndGate.Graphics {
         private _cachedPosition: Vector2d;
         private _strokeStyle: Color;
         private _strokeChangeWire: (color: Color) => void;
+        private _scale: Vector2d;
 
         /**
         * Creates a new instance of the Line2d object with a line width of 1.
@@ -184,9 +185,13 @@ module EndGate.Graphics {
         * Scale's the Line2d graphic.
         * @param scale The value to multiply the graphic's size by.
         */
-        public Scale(scale: number): void {
-            this.From = this.Position.Add(this.From.Subtract(this.Position).Multiply(scale));
-            this.To = this.Position.Add(this.To.Subtract(this.Position).Multiply(scale));
+        public get Scale(): Vector2d {
+            return this._scale;
+        }
+        public set Scale(value: Vector2d) {
+            this._scale = value;
+            this.From = this.Position.Add(this.From.Subtract(this.Position).Multiply(value));
+            this.To = this.Position.Add(this.To.Subtract(this.Position).Multiply(value));
         }
 
         /**

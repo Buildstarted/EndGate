@@ -12,6 +12,8 @@ module EndGate.Graphics {
     export class Rectangle extends Shape {
         public _type: string = "Rectangle";
 
+        private _scale: Vector2d;
+
         /**
         * Gets or sets the Size of the Rectangle.
         */
@@ -64,9 +66,12 @@ module EndGate.Graphics {
         * Scale's the rectangle graphic.
         * @param scale The value to multiply the graphic's size by.
         */
-        public Scale(scale: number): void {
-            this.Size.Width *= scale;
-            this.Size.Height *= scale;
+        public get Scale(): Vector2d {
+            return this._scale;
+        }
+        public set Scale(value: Vector2d) {
+            this._scale = value;
+            this.Size = this.Size.Multiply(value);
         }
 
         /**

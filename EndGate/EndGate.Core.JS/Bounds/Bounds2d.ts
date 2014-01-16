@@ -39,7 +39,10 @@ module EndGate.Bounds {
         * @param x Value to multiply the horizontal component by.
         * @param y Value to multiply the vertical component by.
         */
-        public Scale(x: number, y: number): void {
+        public get Scale(): Vector2d {
+            throw new Error("This method is abstract!");
+        }
+        public set Scale(value: Vector2d) {
             throw new Error("This method is abstract!");
         }
 

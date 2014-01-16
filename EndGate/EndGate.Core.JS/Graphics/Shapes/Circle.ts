@@ -11,6 +11,8 @@ module EndGate.Graphics {
     */
     export class Circle extends Shape {
         public _type: string = "Circle";
+
+        private _scale: Vector2d;
          
         /**
         * Gets or sets the Radius of the Circle.
@@ -61,8 +63,12 @@ module EndGate.Graphics {
         * Scale's the circle graphic.
         * @param scale The value to multiply the graphic's size by.
         */
-        public Scale(scale: number): void {
-            this.Radius *= scale;
+        public get Scale(): eg.Vector2d {
+            return this._scale;
+        }
+        public set Scale(value: Vector2d) {
+            this._scale = value;
+            this.Radius *= (<Vector2d>value).Length();
         }
 
         /**

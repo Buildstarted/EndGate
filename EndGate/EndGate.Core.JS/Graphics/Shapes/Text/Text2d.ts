@@ -17,6 +17,7 @@ module EndGate.Graphics {
         private _fontSettings: Assets.FontSettings;
         private _text: string;
         private _recalculateBoundsSize: boolean;
+        private _scale: Vector2d;
 
         // For GetDrawBounds
         private _drawBounds: Bounds.BoundingRectangle;
@@ -161,10 +162,14 @@ module EndGate.Graphics {
         * Scale's the fonts FontSize.
         * @param scale The value to multiply the graphic's size by.
         */
-        public Scale(scale: number): void {
+        public get Scale(): Vector2d {
+            return this._scale;
+        }
+        public set Scale(value: Vector2d) {
+            this._scale = value;
             var size = parseInt(this.FontSettings.FontSize);
 
-            this.FontSettings.FontSize = this.FontSettings.FontSize.replace(size.toString(), (size * scale).toString());
+            this.FontSettings.FontSize = this.FontSettings.FontSize.replace(size.toString(), (size * (<Vector2d>value).Length()).toString());
         }
 
         /**

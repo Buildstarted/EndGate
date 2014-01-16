@@ -189,7 +189,10 @@ module EndGate.Graphics {
         * Abstract: Should be overridden to scale the size of the Graphic2d.
         * @param scale The value to multiply the graphic's size by.
         */
-        public Scale(scale: number): void{
+        public get Scale(): eg.Vector2d {
+            throw new Error("Scale is abstract, it must be implemented.");
+        }
+        public set Scale(value: Vector2d) {
             throw new Error("Scale is abstract, it must be implemented.");
         }
 

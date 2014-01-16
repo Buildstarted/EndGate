@@ -62,7 +62,7 @@ module EndGate.Rendering {
                 unscale = 1 / scale;
 
             // Scale camera size to our zoom level
-            this._camera.Scale(scale, scale);
+            this._camera.Scale = new Vector2d(scale, scale);
 
             for (var i = 0; i < allRenderables.length; i++) {
                 if (allRenderables[i].Visible && this._camera.Intersects(allRenderables[i].GetDrawBounds())) {
@@ -70,7 +70,7 @@ module EndGate.Rendering {
                 }
             }
 
-            this._camera.Scale(unscale, unscale);
+            this._camera.Scale = new Vector2d(unscale, unscale);
 
             return onscreen;
         }

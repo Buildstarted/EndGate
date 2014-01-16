@@ -11,6 +11,8 @@ module EndGate.Graphics {
     export class Sprite2d extends Graphic2d {
         public _type: string = "Sprite2d";
 
+        private _scale: Vector2d;
+
         /**
         * Gets or sets the Image that is drawn to the game screen.
         */
@@ -70,9 +72,12 @@ module EndGate.Graphics {
         * Scale's the Sprite2d graphic.
         * @param scale The value to multiply the graphic's size by.
         */
-        public Scale(scale: number): void {
-            this.Size.Width *= scale;
-            this.Size.Height *= scale;
+        public get Scale(): Vector2d {
+            return this._scale;
+        }
+        public set Scale(value: Vector2d) {
+            this._scale = value;
+            this.Size = this.Size.Multiply(value);
         }
 
         /**

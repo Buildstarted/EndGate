@@ -25,7 +25,10 @@ module EndGate.Graphics {
         /**
         * Scale is not implemented.
         */
-        public Scale(scale: number): void {
+        public get Scale(): Vector2d {
+            throw new Error("Scale is not implemented for TileMaps.");
+        }
+        public set Scale(value: Vector2d) {
             throw new Error("Scale is not implemented for TileMaps.");
         }
     }

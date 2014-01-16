@@ -12,6 +12,8 @@ module EndGate.Bounds {
         public _type: string = "BoundingRectangle";
         public _boundsType: string = "BoundingRectangle";
 
+        private _scale: Vector2d;
+
         /**
         * Gets or sets the Size of the rectangle.
         */
@@ -32,9 +34,13 @@ module EndGate.Bounds {
         * @param x Value to multiply the width by.
         * @param y Value to multiply the height by.
         */
-        public Scale(x: number, y: number): void {
-            this.Size.Width *= x;
-            this.Size.Height *= y;
+        public get Scale(): Vector2d {
+            return this._scale;
+        }
+        public set Scale(value: Vector2d) {
+            this._scale = value;
+            this.Size.Width *= value.X;
+            this.Size.Height *= value.Y;
         }
 
         /** 

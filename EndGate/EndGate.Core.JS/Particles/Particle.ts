@@ -45,7 +45,7 @@ module EndGate.Particles {
         */
         constructor(texture: Graphics.Graphic2d, fromLocation: Vector2d, toLocation: Vector2d, scale: number, opacity: number,  rotation: number, rotationSpeed: number, lifetime: TimeSpan, fadeInDuration: TimeSpan, fadeOutDuration: TimeSpan, movementFunction: Tweening.Functions.ITweeningFunction) {
             texture.Position = fromLocation;
-            texture.Scale(scale);
+            texture.Scale = new Vector2d(scale, scale);
             texture.Rotation = rotation;
             texture.Opacity = 0;
 

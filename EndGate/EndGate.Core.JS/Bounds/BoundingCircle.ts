@@ -11,6 +11,8 @@ module EndGate.Bounds {
         public _type: string = "BoundingCircle";
         public _boundsType: string = "BoundingCircle";
 
+        private _scale: Vector2d;
+
         /**
         * Gets or sets the Radius of the circle.
         */
@@ -31,10 +33,14 @@ module EndGate.Bounds {
         * Scales the radius of the BoundingCircle.
         * @param scale Value to multiply the radius by.
         */
-        public Scale(scale: number): void {
+        public get Scale(): Vector2d {
+            return this._scale;
+        }
+        public set Scale(value: Vector2d) {
+            this._scale = value;
             // This is an overloaded version of Bounds2d Scale but we don't care
             // about the second parameter within a BoundingCircle
-            this.Radius *= scale;
+            this.Radius *= value.Length();
         }
 
         /**
